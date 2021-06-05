@@ -1,3 +1,19 @@
 micronaut:
   application:
     name: demo
+datasources:
+  default:
+    url: jdbc:postgresql://localhost/micro?user=postgres&password=docker
+    driverClassName: org.postgresql.Driver
+
+jpa:
+  default:
+    entity-scan:
+      packages:
+        - 'br.com.temp.model'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+        dialect: "org.hibernate.dialect.PostgreSQLDialect"
